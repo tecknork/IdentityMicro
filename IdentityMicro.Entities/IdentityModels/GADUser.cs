@@ -6,7 +6,7 @@ using System.Text;
 
 namespace IdentityMicro.Entities.IdentityModels
 {
-    public class GADUser : IdentityUser,IGADUsers
+    public class GADUser : IdentityUser, IGADUsers
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -1,5 +1,6 @@
 ﻿using IdentityMicro.Data.DBContext;
-using IdentityMicro.Entities.Interfaces;
+using IdentityMicro.Entities.IdentityModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,9 +21,9 @@ namespace IdentityMicro.Business.IocManager
             services.AddDbContext<GADDBContext>(options =>
                   options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddIdentity<ConfArchUser, IdentityRole>((options =>
-            //            options.Password.RequireNonAlphanumeric = false))
-            //    .AddEntityFrameworkStores<ConfArchDbContext>();
+            services.AddIdentity<GADUser, IdentityRole>((options =>
+                       options.Password.RequireNonAlphanumeric = false))
+                      .AddEntityFrameworkStores<GADDBContext>();
         }
     }
 }

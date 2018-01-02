@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IdentityMicro.Common\IdentityMicro.Common.csproj" />
     <ProjectReference Include="..\IdentityMicro.Data\IdentityMicro.Data.csproj" />
     <ProjectReference Include="..\IdentityMicro.Entities\IdentityMicro.Entities.csproj" />
@@ -17,6 +21,10 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.dependencyinjection.abstractions\2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UserManager\" />
   </ItemGroup>
 
 </Project>
