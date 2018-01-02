@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityMicro.Common", "IdentityMicro.Common\IdentityMicro.Common.csproj", "{AA802128-5E32-4F59-8A90-1A6EE1E70E1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityMicro.Common", "IdentityMicro.Common\IdentityMicro.Common.csproj", "{AA802128-5E32-4F59-8A90-1A6EE1E70E1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityMicro.Entities", "IdentityMicro.Entities\IdentityMicro.Entities.csproj", "{C84C806D-2851-4590-A9EE-DD65E95F23A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityMicro.Business", "IdentityMicro.Business\IdentityMicro.Business.csproj", "{A73377B5-B04B-46F5-BC74-586A3C372B30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityMicro.Data", "IdentityMicro.Data\IdentityMicro.Data.csproj", "{CAC0BB17-D565-4254-9A28-C42415C45D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityMicro.IdentityAPI", "IdentityMicro.IdentityAPI\IdentityMicro.IdentityAPI.csproj", "{FD9BF2A1-AE04-4A4B-BD33-A743F8081378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{AA802128-5E32-4F59-8A90-1A6EE1E70E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA802128-5E32-4F59-8A90-1A6EE1E70E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA802128-5E32-4F59-8A90-1A6EE1E70E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84C806D-2851-4590-A9EE-DD65E95F23A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84C806D-2851-4590-A9EE-DD65E95F23A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84C806D-2851-4590-A9EE-DD65E95F23A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84C806D-2851-4590-A9EE-DD65E95F23A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A73377B5-B04B-46F5-BC74-586A3C372B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A73377B5-B04B-46F5-BC74-586A3C372B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A73377B5-B04B-46F5-BC74-586A3C372B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A73377B5-B04B-46F5-BC74-586A3C372B30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC0BB17-D565-4254-9A28-C42415C45D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC0BB17-D565-4254-9A28-C42415C45D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC0BB17-D565-4254-9A28-C42415C45D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC0BB17-D565-4254-9A28-C42415C45D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9BF2A1-AE04-4A4B-BD33-A743F8081378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9BF2A1-AE04-4A4B-BD33-A743F8081378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9BF2A1-AE04-4A4B-BD33-A743F8081378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9BF2A1-AE04-4A4B-BD33-A743F8081378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
