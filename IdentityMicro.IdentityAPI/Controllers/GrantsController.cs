@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using IdentityMicro.IdentityAPI.ViewModels.Grants;
-
+using IdentityMicro.IdentityAPI.Attributes;
 namespace IdentityMicro.IdentityAPI.Controllers
 {
     /// <summary>

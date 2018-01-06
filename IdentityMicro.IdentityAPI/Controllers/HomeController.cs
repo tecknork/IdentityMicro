@@ -12,49 +12,51 @@ using IdentityMicro.IdentityAPI.ViewModels;
 
 namespace IdentityMicro.IdentityAPI.Controllers
 {
+    
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
-        private readonly IIdentityServerInteractionService _interaction;
+      private readonly IIdentityServerInteractionService _interaction;
 
         public HomeController(IIdentityServerInteractionService interaction)
         {
-            _interaction = interaction;
+            //_interaction = interaction;
         }
-
-        public IActionResult Index()
+        [HttpGet("/index")]
+        public bool Index()
         {
-            return View();
+            return true;
         }
 
+        [HttpGet("/about")]
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
 
-            return View();
+
+            return new JsonResult(new { value = "success" });
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult Contact()
+        //{
+        //    return new JsonResult(new { value = "Contact Page" });
+        //}
 
         /// <summary>
         /// Shows the error page
         /// </summary>
-        public async Task<IActionResult> Error(string errorId)
-        {
-            var vm = new ErrorViewModel();
+        //public async Task<IActionResult> Error(string errorId)
+        //{
+        //    var vm = new ErrorViewModel();
 
-            // retrieve error details from identityserver
-            var message = await _interaction.GetErrorContextAsync(errorId);
-            if (message != null)
-            {
-                vm.Error = message;
-            }
+        //    // retrieve error details from identityserver
+        //    var message = await _interaction.GetErrorContextAsync(errorId);
+        //    if (message != null)
+        //    {
+        //        vm.Error = message;
+        //    }
 
-            return View("Error", vm);
-        }
+        //    return View("Error", vm);
+        //}
     }
 }

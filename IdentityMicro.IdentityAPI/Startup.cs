@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace IdentityMicro.IdentityAPI
 {
@@ -28,9 +29,19 @@ namespace IdentityMicro.IdentityAPI
 
             services.AddMvc();
 
-            StartupConfigure.ConfigureIOC(services,configuration);
-            
-            
+          StartupConfigure.ConfigureIOC(services,configuration);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "My API",
+                    Description = "My First ASP.NET Core Web API",
+                    TermsOfService = "None",
+                    Contact = new Contact() { Name = "Talking Dotnet", Email = "contact@talkingdotnet.com", Url = "www.talkingdotnet.com" }
+                });
+            });
 
         }
 
@@ -42,14 +53,20 @@ namespace IdentityMicro.IdentityAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
             StartupConfigure.ConfigureApp(app, env);
-            
+          
             // app.UseAuthentication();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
+            app.UseMvc();
         }
     }
 }
