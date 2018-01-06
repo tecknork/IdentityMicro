@@ -2,9 +2,10 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityMicro.Entities.ViewModels.Consent;
 using System.Collections.Generic;
 
-namespace IdentityMicro.IdentityAPI.ViewModels.Consent
+namespace IdentityMicro.Entities.ViewModels.Consent
 {
     public class ConsentViewModel : ConsentInputModel
     {

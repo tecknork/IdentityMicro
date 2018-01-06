@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-namespace IdentityMicro.IdentityAPI.ViewModels.Consent
+namespace IdentityMicro.Entities.ViewModels.Consent
 {
     public class ProcessConsentResult
     {
@@ -10,7 +10,7 @@ namespace IdentityMicro.IdentityAPI.ViewModels.Consent
         public string RedirectUri { get; set; }
 
         public bool ShowView => ViewModel != null;
-        public ConsentViewModel ViewModel { get; set; }
+         public ConsentViewModel ViewModel { get; set; }
 
         public bool HasValidationError => ValidationError != null;
         public string ValidationError { get; set; }

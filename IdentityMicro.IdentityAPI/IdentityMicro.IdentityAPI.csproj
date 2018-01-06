@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="ViewModels\Consent\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

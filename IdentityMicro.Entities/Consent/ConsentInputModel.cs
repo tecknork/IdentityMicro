@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace IdentityMicro.IdentityAPI.ViewModels.Consent
+namespace IdentityMicro.Entities.ViewModels.Consent
 {
     public class ConsentInputModel
     {
