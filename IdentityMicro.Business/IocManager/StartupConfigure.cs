@@ -1,5 +1,9 @@
-﻿using IdentityMicro.Data.DBContext;
+﻿using IdentityMicro.Business.UserManager;
+using IdentityMicro.Data.DBContext;
 using IdentityMicro.Entities.IdentityModels;
+using IdentityMicro.Entities.Interfaces;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,9 +25,44 @@ namespace IdentityMicro.Business.IocManager
             services.AddDbContext<GADDBContext>(options =>
                   options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<GADUser, IdentityRole>((options =>
-                       options.Password.RequireNonAlphanumeric = false))
-                      .AddEntityFrameworkStores<GADDBContext>();
+            
+            var idsrvBuilder = services.AddIdentityServer()
+              .AddDeveloperSigningCredential()
+              //.AddInMemoryIdentityResources(Config.GetIdentityResources())
+              //.AddInMemoryApiResources(Config.GetApiResources())
+              //.AddInMemoryClients(Config.GetClients())
+              //.AddTestUsers(Config.GetUsers())
+              .AddConfigurationStore(options =>
+              {
+                  options.ConfigureDbContext = builder =>
+                         builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                             sql => sql.MigrationsAssembly("IdentityMicro.Data"));
+
+                 
+              })
+
+              .AddOperationalStore(options =>
+              {
+                  options.ConfigureDbContext = builder =>
+                        builder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                            sql => sql.MigrationsAssembly("IdentityMicro.Data"));
+
+              });
+
+            services.AddScoped<IUserRepository, UserRepository>();
+
+           idsrvBuilder.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+           idsrvBuilder.AddProfileService<ProfileService>();
+
+           
+            services.AddScoped<UserStore>();
+
+
+        }
+
+        public static void ConfigureApp(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            app.UseIdentityServer();
         }
     }
 }

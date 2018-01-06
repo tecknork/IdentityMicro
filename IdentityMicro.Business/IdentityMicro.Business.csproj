@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\IdentityMicro.Common\IdentityMicro.Common.csproj" />
     <ProjectReference Include="..\IdentityMicro.Data\IdentityMicro.Data.csproj" />
     <ProjectReference Include="..\IdentityMicro.Entities\IdentityMicro.Entities.csproj" />
@@ -24,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UserManager\" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

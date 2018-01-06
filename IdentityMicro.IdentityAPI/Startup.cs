@@ -46,8 +46,9 @@ namespace IdentityMicro.IdentityAPI
             {
                 await context.Response.WriteAsync("Hello World!");
             });
-
-            app.UseAuthentication();
+            StartupConfigure.ConfigureApp(app, env);
+            
+            // app.UseAuthentication();
 
         }
     }
