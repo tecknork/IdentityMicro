@@ -20,18 +20,34 @@ namespace IdentityMicro.Business.IocManager
 
         public static void ConfigureIOC(IServiceCollection services, IConfiguration configuration)
         {
-            
-
             services.AddDbContext<GADDBContext>(options =>
-                  options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+               options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                // example of setting options
+                options.Tokens.ChangePhoneNumberTokenProvider = "Phone";
+
+                // password settings chosen due to NIST SP 800-63
+                options.Password.RequiredLength = 8; // personally i'd prefer to see 10+
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+            })
+            .AddEntityFrameworkStores<GADDBContext>()
+            .AddDefaultTokenProviders();
+
+      
             
             var idsrvBuilder = services.AddIdentityServer()
               .AddDeveloperSigningCredential()
-              //.AddInMemoryIdentityResources(Config.GetIdentityResources())
-              //.AddInMemoryApiResources(Config.GetApiResources())
-              //.AddInMemoryClients(Config.GetClients())
-              //.AddTestUsers(Config.GetUsers())
+                 //.AddInMemoryIdentityResources(Config.GetIdentityResources())
+                 //.AddInMemoryApiResources(Config.GetApiResources())
+                 //.AddInMemoryClients(Config.GetClients())
+                 //.AddTestUsers(Config.GetUsers())
+               .AddAspNetIdentity<User>()
               .AddConfigurationStore(options =>
               {
                   options.ConfigureDbContext = builder =>

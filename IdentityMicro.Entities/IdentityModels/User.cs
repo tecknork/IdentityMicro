@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IdentityMicro.Entities.IdentityModels
 {
-    public class User
+    public class User :IdentityUser
     {
-        public int Id { get; set; }
+
         public Guid SubjectId { get; set; }
         [StringLength(50)]
-        [Required]
-        public string UserName { get; set; }
-        [StringLength(50)]
+
         [Required]
         public string Password { get; set; }
         [StringLength(50)]

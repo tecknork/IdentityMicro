@@ -9,7 +9,7 @@ namespace IdentityMicro.Entities.IdentityModels
     public class UserExternalProvider
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
         public string ProviderName { get; set; }
         [StringLength(250)]
