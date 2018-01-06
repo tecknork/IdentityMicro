@@ -10,11 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using IdentityServerWithAspNetIdentity.Models;
-using IdentityServerWithAspNetIdentity.Models.ManageViewModels;
-using IdentityServerWithAspNetIdentity.Services;
 
-namespace IdentityServerWithAspNetIdentity.Controllers
+
+namespace IdentityMicro.IdentityAPI.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

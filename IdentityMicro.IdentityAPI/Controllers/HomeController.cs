@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using IdentityServer4.Services;
-using IdentityServer4.Quickstart.UI;
-using IdentityMicro.IdentityAPI;
 
-namespace IdentityServerWithAspNetIdentity.Controllers
+using IdentityMicro.IdentityAPI;
+using IdentityMicro.IdentityAPI.ViewModels;
+
+namespace IdentityMicro.IdentityAPI.Controllers
 {
     public class HomeController : Controller
     {
