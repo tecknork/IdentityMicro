@@ -11,9 +11,10 @@ using System;
 namespace IdentityMicro.Data.Migrations
 {
     [DbContext(typeof(GADDBContext))]
-    partial class GADDBContextModelSnapshot : ModelSnapshot
+    [Migration("20180106175726_IdentityAspNetIdentiyUpdateFinal")]
+    partial class IdentityAspNetIdentiyUpdateFinal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

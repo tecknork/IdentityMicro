@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180106173916_IdentityAspNetIdentiy.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IdentityMicro.Entities\IdentityMicro.Entities.csproj" />
   </ItemGroup>
 

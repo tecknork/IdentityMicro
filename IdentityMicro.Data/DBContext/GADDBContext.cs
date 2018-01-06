@@ -15,14 +15,14 @@ namespace IdentityMicro.Data.DBContext
         {
 
         }
-       
-       
+
+
         public DbSet<UserExternalProvider> UserExternalProviders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           // modelBuilder.Entity<User>().HasIndex(i => i.UserName).IsUnique();
+            // modelBuilder.Entity<User>().HasIndex(i => i.UserName).IsUnique();
             modelBuilder.Entity<User>().HasIndex(i => i.SubjectId).IsUnique();
             modelBuilder.Entity<UserExternalProvider>().HasIndex(i => i.ProviderName);
             modelBuilder.Entity<UserExternalProvider>().HasIndex(i => i.ProviderSubjectId);

@@ -17,21 +17,21 @@ namespace IdentityMicro.Data.DBContext
         }
         public async Task<User> GetBySubjectId(Guid subjectId)
         {
-            // throw new NotImplementedException();
+            
             return
                 await dbContext.Users.SingleAsync(u => u.SubjectId == subjectId);
         }
 
         public async Task<User> GetByUserName(string userName)
         {
-            //throw new NotImplementedException();
+
             return
                 await dbContext.Users.SingleOrDefaultAsync(u => u.UserName == userName);
         }
 
         public async Task<User> GetByExternalProviderInfo(string providerName, string providerSubjectId)
         {
-            // throw new NotImplementedException();
+
             return
                 await
                     dbContext.UserExternalProviders.Where(
@@ -41,6 +41,8 @@ namespace IdentityMicro.Data.DBContext
 
         public async Task CreateUser(User user, string providerName, string providerSubjectId)
         {
+
+
             await dbContext.Users.AddAsync(user);
             var extProv = new UserExternalProvider
             {
